@@ -1,0 +1,23 @@
+<extend name="Index/index" />
+<block name="nav">用户信息管理 &gt; <span>分配角色</span></block>
+<block name="main">
+
+	<p>
+		给 <b><{$users.username}></b> 分配权限
+	</p>
+	
+	<form action="<{:U('User/saverole')}>" method='post'>
+	<p style="width:600px">
+		<volist name="list" id="vo">
+			<input type="checkbox" name="role[]"  value="<{$vo.id}>" <if condition="in_array($vo['id'],$role) eq true">checked</if>><{$vo.name}>
+			&nbsp;
+			&nbsp;
+			&nbsp;
+		</volist>
+	</p>
+	<input type="hidden" name="uid" value="<{$users.id}>">
+	<input type="submit" value="保存">
+
+	</form>
+	
+</block>

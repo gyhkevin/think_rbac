@@ -1,0 +1,28 @@
+<extend name="Index/index" />
+<block name="main">
+	<include file="Stu/menu"/>
+	
+	<table width=90% border=1 cellspacing=0 cellpadding=5>
+		<tr>
+			
+			<th>id</th>
+			<th>name</th>
+			<th>sex</th>
+			<th>grade</th>
+			<th>操作</th>
+		</tr>
+		<volist name="list" id="vo">
+			<tr>
+			
+				<td><{$vo.id}></td>
+				<td><{$vo.name}></td>
+				<td><if condition="$vo.sex eq 'w'">女<else />男</if></td>
+				<td><{$vo.grade}></td>
+				<td><a href="<{:U('Stu/del',array('id'=>$vo['id']))}>">删除</a> <a href="<{:U('Stu/edit',array('id'=>$vo['id']))}>">编辑</a></td>
+			</tr>
+		</volist>
+		<tr>
+			
+		</tr>
+	</table>
+</block>

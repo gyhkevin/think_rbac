@@ -1,0 +1,31 @@
+<extend name="Index/index" />
+		<block name="main">
+		<include file="Stu/menu" />
+		<form action="<{:U('Stu/insert')}>" method="post">
+			<table>
+				<tr>
+					<td>姓名：</td>
+					<td><input type="text" name="name" id=""></td>
+				</tr>
+
+				<tr>
+					<td>性别：</td>
+					<td>
+						<input type="radio" name="sex" value="w" id="">女
+						<input type="radio" name="sex" value="m" id="">男
+					</td>
+				</tr>
+				
+				<tr>
+					<td>班级：</td>
+					<td><input type="text" name="grade" id=""></td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td><input type="submit" value="添加" id=""></td>
+				</tr>
+
+			</table>
+		</form>
+		</block>

@@ -1,0 +1,21 @@
+<extend name="Index/index" />
+<block name="nav">角色信息管理 &gt; <span>分配权限</span></block>
+<block name="main">
+
+	<p>
+		给 <b><{$role.name}></b> 分配权限
+	</p>
+	
+	<form action="<{:U('Role/savenode')}>" method='post'>
+	<p style="width:800px">
+		<volist name="nodes" id="vo"> 
+			<input type="checkbox" name="node[]"  value="<{$vo.id}>" <if condition="in_array($vo['id'],$ro_nodes) eq true">checked</if>><{$vo.name}>&nbsp;&nbsp;
+			<if condition="$i%4 eq 0 "><br></if>
+		</volist>
+	</p>
+	<input type="hidden" name="rid" value="<{$role.id}>">
+	<input type="submit" value="保存">
+
+	</form>
+	
+</block>

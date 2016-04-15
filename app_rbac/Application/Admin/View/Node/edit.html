@@ -1,0 +1,17 @@
+<extend name="Index/index" />
+<block name="nav">节点信息管理 &gt; <span>修改节点信息</span></block>
+<block name="main">
+
+	<form action="<{:U('Node/save')}>" method='post'>
+		节点名：<input type="text" name="name" value="<{$vo.name}>"><br>
+		控制器 ：<input type="text" name="mname" value="<{$vo.mname}>"><br>
+		操  作 ：<input type="text" name="aname" value="<{$vo.aname}>"><br>
+		<input type="radio" name="status" value="1" <if condition="$vo.status eq 1">checked</if>>启用
+		<input type="radio" name="status" value="0" <if condition="$vo.status eq 0">checked</if>>禁用
+		<br>
+		<input type="hidden" name="id" value="<{$vo.id}>">
+		<input type="submit" value="添加">
+		
+		
+	</form>
+</block>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><{$title}></title>
+	<!-- <link rel="stylesheet" href="__PUBLIC__/Css/style.css"> -->
+	<!-- <import file="Css.style" type="css" /> -->
+
+	<css file="__PUBLIC__/Css/style.css"/>
+</head>
+<body>
+	<h1><{$title}></h1>
+	<hr>
+	<h3><?php echo $title?></h3>
+
+	<p>
+		<?php 
+			echo time();
+		 ?>
+	</p>
+
+	<p>
+		
+		<{:time()}>
+	</p>
+
+
+	<hr>
+	<h2>获取系统变量</h2>
+
+	<p><{$Think.get.name}></p>
+	<p><{$Think.server.PHP_SELF}></p>
+	<p><{$Think.config.DEFAULT_THEME}></p>
+
+	<p>常量： <{$Think.MODULE_NAME}></p>
+	<p>常量-控制器： <{$Think.CONTROLLER_NAME}></p>
+	<p>常量-操作： <{$Think.ACTION_NAME}></p>
+
+
+	<hr>
+	<h2>模板中使用函数：</h2>
+	<p>原样输出<{$content}></p>
+	<p><?php
+		echo substr($content,2,3) ;
+	?></p>
+
+	<p>
+		
+		<{:substr($content,2,3)}>
+	</p>
+
+
+	<p>
+		
+		<{$content|substr="###",2,4}>
+	</p>
+
+
+
+	<hr>
+	<h2>默认值</h2>
+	<p>你好:<{$Think.session.admin}></p>
+
+	<hr>
+	<h2>三元运算</h2>
+	<p>你好：<{$name?$name:'游客'}></p>
+	<p>你好：<{$name?$name:'游客'}></p>
+	<p>你好：<{$title?$title:'游客'}></p>
+
+
+
+	<hr>
+	<h2>包含文件</h2>
+	<!-- <include file="Index/index" /> -->
+
+	<include file="./Application/Admin/View/Stu/add.html" />
+
+
+	<h2>内置标签</h2>
+	hello，<present name="Think.session.usernamde">
+		
+		<{$Think.session.username}>
+	<else />
+		游客
+	</present>
+
+
+	<hr>
+	<h2>模板中导入资源</h2>
+
+	<img src="./Public/Images/Meinv001.jpg" alt="" width=300>
+	<img src="__PUBLIC__/Images/Meinv001.jpg" alt="" width=300>
+
+	<script src="__PUBLIC__/Js/script.js"></script>
+
+	<import file="Js.script" type="js"/>
+
+	<js file="__PUBLIC__/Js/script.js"/>
+
+
+	<hr>
+
+	<h2>模板常量</h2>
+	<p>__PUBLIC__
+	</p>
+
+	<p>__APP__
+	</p>
+
+	<p>__ROOT__</p>
+	<p>__MODULE__</p>
+	<p>__CONTROLLER__</p>
+	<p>__ACTION__</p>
+	<p>__SELF__</p>
+
+
+	<p>__JS__</p>
+</body>
+</html>

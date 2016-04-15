@@ -1,0 +1,35 @@
+<extend name="Index/index" />
+<block name="nav">用户信息管理 &gt; <span>浏览用户信息</span></block>
+<block name="main">
+
+	<center>
+		<table width=90% cellpadding="5" cellspacing="3">
+			<tr align='left' bgcolor="#ccc">
+				<th>ID</th>
+				<th>用户名</th>
+				<th>真实姓名</th>
+				<th>所属角色</th>
+				<th>操作</th>
+			</tr>
+			<volist name="list" id="vo">
+				<tr>
+					<td><{$vo.id}></td>
+					<td><{$vo.username}></td>
+					<td><{$vo.name}></td>
+					<td>
+						<volist name="vo.role" id="role">
+							<span style="color:#999"><{$role}></span>
+							&nbsp;
+						</volist>
+					</td>
+					<td>
+						<a href="<{:U('User/del',array('id'=>$vo['id']))}>">删除</a>
+						<a href="<{:U('User/edit',array('id'=>$vo['id']))}>">修改</a>
+						<a href="<{:U('User/rolelist',array('id'=>$vo['id']))}>">分配角色</a>
+					</td>
+				</tr>
+			</volist>
+			
+		</table>
+	</center>
+</block>

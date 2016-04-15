@@ -1,0 +1,36 @@
+<extend name="Index/index" />
+<block name="nav">角色信息管理 &gt; <span>浏览角色信息</span></block>
+<block name="main">
+
+	<center>
+		<table width=90% cellpadding="5" cellspacing="3">
+			<tr align='left' bgcolor="#ccc">
+				<th>ID</th>
+				<th>角色名</th>
+				<th>说明</th>
+				<th>状态</th>
+				<th>拥有权限</th>
+				<th>操作</th>
+			</tr>
+			<volist name="list" id="vo">
+				<tr>
+					<td><{$vo.id}></td>
+					<td><{$vo.name}></td>
+					<td><{$vo.remark}></td>
+					<td><if condition="$vo.status eq 1">启用<else />禁用</if></td>
+					<td width=200>
+						<!-- <volist name="vo.node" id='va'>
+							<{$va}>&nbsp;
+						</volist> -->
+					</td>
+					<td>
+						<a href="<{:U('Role/del',array('id'=>$vo['id']))}>">删除</a>
+						<a href="<{:U('Role/edit',array('id'=>$vo['id']))}>">修改</a>
+						<a href="<{:U('Role/nodelist',array('id'=>$vo['id']))}>">分配权限</a>
+					</td>
+				</tr>
+			</volist>
+			
+		</table>
+	</center>
+</block>

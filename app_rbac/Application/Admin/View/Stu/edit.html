@@ -1,0 +1,33 @@
+<extend name="Index/index" />
+<block name="main">
+		<include file="Stu/menu" />
+		<form action="<{:U('Stu/save')}>" method="post">
+			<table>
+				<tr>
+					<td>姓名：</td>
+					<td><input type="text" name="name" id="" value="<{$data.name}>"></td>
+				</tr>
+
+				<tr>
+					<td>性别：</td>
+					<td>
+						<input type="radio" name="sex" value="w" <if condition="$data.sex eq 'w'">checked</if> id="">女
+						<input type="radio" name="sex" value="m" <if condition="$data.sex eq 'm'">checked</if> id="">男
+					</td>
+				</tr>
+				
+				<tr>
+					<td>班级：</td>
+					<td><input type="text" name="grade" id="" value="<{$data.grade}>"></td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td>
+						<input type="hidden" name="id" value="<{$data.id}>">
+						<input type="submit" value="修改" id=""></td>
+				</tr>
+
+			</table>
+		</form>
+</block>

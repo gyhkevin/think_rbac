@@ -1,0 +1,31 @@
+<extend name="Index/index" />
+<block name="nav">节点信息管理 &gt; <span>浏览节点信息</span></block>
+<block name="main">
+
+	<center>
+		<table width=90% cellpadding="5" cellspacing="3">
+			<tr align='left' bgcolor="#ccc">
+				<th>ID</th>
+				<th>节点名称</th>
+				<th>模块名（控制器）</th>
+				<th>操作</th>
+				<th>状态</th>
+				<th>操作</th>
+			</tr>
+			<volist name="list" id="vo">
+				<tr>
+					<td><{$vo.id}></td>
+					<td><{$vo.name}></td>
+					<td><{$vo.mname}></td>
+					<td><{$vo.aname}></td>
+					<td><if condition="$vo.status eq 1">启用<else />禁用</if></td>
+					<td>
+						<a href="<{:U('Node/del',array('id'=>$vo['id']))}>">删除</a>
+						<a href="<{:U('Node/edit',array('id'=>$vo['id']))}>">修改</a>
+					</td>
+				</tr>
+			</volist>
+			
+		</table>
+	</center>
+</block>

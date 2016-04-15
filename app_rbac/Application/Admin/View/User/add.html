@@ -1,0 +1,15 @@
+<extend name="Index/index" />
+<block name="nav">用户信息管理 &gt; <span>添加用户信息</span></block>
+<block name="main">
+
+	<form action="<{:U('User/doadd')}>" method='post'>
+		用 户 名：<input type="text" name="username"><br>
+		真实姓名：<input type="text" name="name"><br>
+		密  码 ：<input type="password" name="userpass"><br>
+		确认密码：<input type="password" name="reuserpass"><br>
+		<br>
+		<input type="submit" value="添加">
+		
+		
+	</form>
+</block>

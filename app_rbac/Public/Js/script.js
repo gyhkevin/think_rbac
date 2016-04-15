@@ -1,0 +1,1 @@
+document.write("hello,我是js<br>");

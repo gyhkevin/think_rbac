@@ -1,0 +1,15 @@
+<extend name="Index/index" />
+<block name="nav">角色信息管理 &gt; <span>添加角色信息</span></block>
+<block name="main">
+
+	<form action="<{:U('Role/doadd')}>" method='post'>
+		角色名：<input type="text" name="name"><br>
+		说  明 ：<input type="text" name="remark"><br>
+		<input type="radio" name="status" value="1" checked>启用
+		<input type="radio" name="status" value="0" >禁用
+		<br>
+		<input type="submit" value="添加">
+		
+		
+	</form>
+</block>
